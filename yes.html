@@ -29,12 +29,49 @@
     </style>
   </head>
 <body class="gradient-background">
-  <h2 class="flex justify-center h-screen">please select which door you want to go through!</h2>
-  <div class="flex justify-center" style="width: 100%;">
-    <div class="flex" style="width: 33%;">1</div>
-    <div class="flex" style="width: 33%;">2</div>
-    <div class="flex" style="width: 33%;">3</div>
+  <div class="flex items-center justify-center h-screen">
+    <div class="flex flex-col items-center p-4">
+      <img id="imageDisplay" src="./images/ponyo.jpg" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Which door does my baby want?</h2>
+      <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
+        <button id="door1"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
+          Door 1
+        </button>
+        <button id="door2"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-green-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-green-500 text-white">
+          Door 2
+        </button>
+      </div>
+    </div>
   </div>
-    
+  <script type="module">
+    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+    const door1 = document.getElementById('door1');
+    const door2 = document.getElementById('door2');
+    const imageDisplay = document.getElementById('imageDisplay');
+    const valentineQuestion = document.getElementById('valentineQuestion');
+    const responseButtons = document.getElementById('responseButtons');
+  
+    let noClickCount = 0;
+    let buttonHeight = 48; // Starting height in pixels
+    let buttonWidth = 80;
+    let fontSize = 20; // Starting font size in pixels
+  
+    door2.addEventListener('click', function() {
+      imageDisplay.src = './images/sipncreate.jpg'; // Change to image7.gif
+      valentineQuestion.textContent = "Good job my indecisive lil babyyy"; // Change the question text
+      responseButtons.style.display = 'none'; // Hide both buttons
+      confetti(); // Trigger confetti animation
+      
+    });
+  
+    door1.addEventListener('click', () => {
+      imageDisplay.src = './images/massage.jpg'; // Change to image7.gif
+      valentineQuestion.textContent = "Good job my indecisive lil babyyy"; // Change the question text
+      responseButtons.style.display = 'none'; // Hide both buttons
+      confetti(); // Trigger confetti animation
+    });
+  </script>  
 </body>
 </html>

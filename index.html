@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentines Day</title>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
@@ -31,7 +32,7 @@
 <body class="gradient-background">
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
-      <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
+      <img id="imageDisplay" src="./images/lovey.jpg" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
       <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
@@ -59,10 +60,10 @@
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
-      "./images/image1.gif",
-      "./images/image2.gif",
-      "./images/image3.gif",
-      "./images/image4.gif",
+      "./images/lovey.jpg",
+      "./images/angy.jpg",
+      "./images/car.jpg",
+      "./images/sad.jpg",
       "./images/image5.gif",
       "./images/image6.gif",
       "./images/image7.gif"
@@ -79,20 +80,21 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount <= 6) {
-          noButton.textContent = ["No", "u sure?", "fasfouse plz", "Imma get you yo fav snacks", "You breakin my heart", "stop lyin..."][noClickCount];
+          noButton.textContent = ["No", "u sure?", "but, siartik a7la!!", "tf is wrong here?!", "You breakin my heart", "stop lyin..."][noClickCount];
         }
       }
       
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
+      imageDisplay.src = './images/hugzy_wugzy.jpg'; // Change to image7.gif
       valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation   
-      setTimeout(function(){
-          window.location.href="./yes.html" //moving to the page with the selection of plans
-      }, 2000)   
+      // sendInfo(); 
+      setTimeout(() => {
+        window.location.href = "./yes.html";
+      }, 2000);
     });
   </script>  
 </body>
